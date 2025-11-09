@@ -1,0 +1,162 @@
+{
+  "success": true,
+  "generated_at": "2025-11-08T12:34:56Z",
+
+  "customer": {
+    "odoo_customer_id": 620,
+    "real_name": "The Digital Architects GmbH",
+    "whitelabel_name": "TDA Partner",
+    "display_name": "TDA Partner",
+    "domain": "tda.de"
+  },
+
+  "config": {
+    "sales_order_filter_mode": "whitelist_or_all",
+    "whitelisted_sales_orders": ["S00731", "S00732"],
+    "source": "api_keys_table"
+  },
+
+  "orders": [
+    {
+      "id": 741,
+      "name": "S00731",
+      "state": "sale",
+      "date_order": "2025-08-25 11:28:51",
+      "currency": "EUR",
+      "amount_untaxed": 12000,
+      "amount_tax": 2280,
+      "amount_total": 14280,
+      "is_whitelisted": true,
+      "partner_id": 620,
+      "partner_name": "The Digital Architects GmbH",
+
+      "lines": [
+        {
+          "id": 1636,
+          "sequence": 10,
+          "name": "Individuelle Website (Elementor)",
+          "description": "Individuelle Website (Elementor)\nDomain: gva.de\n…",
+          "state": "sale",
+
+          "product": {
+            "id": 23,
+            "name": "Individuelle Website (Elementor)",
+            "type": "service",
+            "uom": "Hours",
+            "default_code": "WEB-IND-EL",
+            "image_url": "https://odoo.example.com/web/image/product.product/23/image_1024"
+          },
+
+          "qty": 120,
+          "uom": "Hours",
+          "price_unit": 100,
+          "price_subtotal": 12000,
+          "price_total": 14280,
+
+          "project_links": [
+            {
+              "project_id": 300,
+              "relation": "from_sale_order"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "id": 300,
+      "name": "Website gva.de",
+      "customer_id": 620,
+      "customer_name": "The Digital Architects GmbH",
+      "from_sale_order_id": 741,
+      "from_sale_order_name": "S00731",
+      "is_retainer_project": true
+      // keine Tasks hier drin, nur Metadaten
+    }
+  ],
+
+  "retainers": {
+    "current_month": {
+      "month": "2025-11",
+      "task": {
+        "id": 9105,
+        "name": "Retainer 11-2025",
+        "project_id": 300,
+        "project_name": "Website gva.de",
+        "order_id": 741,
+        "order_name": "S00731",
+        "hours_planned": 10,
+        "hours_logged": 3.5,
+        "hours_remaining": 6.5
+      }
+    },
+    "previous_months": [
+      {
+        "month": "2025-10",
+        "task": {
+          "id": 9077,
+          "name": "Retainer 10-2025",
+          "project_id": 300,
+          "project_name": "Website gva.de",
+          "order_id": 741,
+          "order_name": "S00731",
+          "hours_planned": 10,
+          "hours_logged": 9.5,
+          "hours_remaining": 0.5
+        }
+      },
+      {
+        "month": "2025-09",
+        "task": {
+          "id": 9033,
+          "name": "Retainer 09-2025",
+          "project_id": 300,
+          "project_name": "Website gva.de",
+          "order_id": 741,
+          "order_name": "S00731",
+          "hours_planned": 10,
+          "hours_logged": 10,
+          "hours_remaining": 0
+        }
+      }
+      // ... bis max. 12 Monate zurück, nur Monate mit Retainer-Task
+    ]
+  },
+
+  "timesheets": {
+    "2025-11": [
+      {
+        "id": 17440,
+        "date": "2025-11-07",
+        "hours": 2.5,
+        "employee_name": "Max Mustermann",
+        "description": "Contentpflege Startseite",
+        "project_id": 300,
+        "project_name": "Website gva.de",
+        "task_id": 9105,
+        "task_name": "Retainer 11-2025",
+        "order_id": 741,
+        "order_name": "S00731"
+      }
+    ],
+    "2025-10": [
+      {
+        "id": 17379,
+        "date": "2025-10-28",
+        "hours": 3.0,
+        "employee_name": "Max Mustermann",
+        "description": "Bugfixes & Security Updates",
+        "project_id": 300,
+        "project_name": "Website gva.de",
+        "task_id": 9077,
+        "task_name": "Retainer 10-2025",
+        "order_id": 741,
+        "order_name": "S00731"
+      }
+    ]
+    // nur Einträge der letzten 60 Tage; ältere Timesheets werden nicht aufgenommen
+  }
+}
+
